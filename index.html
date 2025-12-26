@@ -1,0 +1,427 @@
+index.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI & Body Goals Tracker - Kelompok 8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">💪 BMI & Body Goals Tracker</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#kalkulator">Kalkulator BMI</a></li>
+                <li><a href="#tracker">Body Goals Tracker</a></li>
+                <li><a href="#kalori">Manajemen Kalori</a></li>
+                <li><a href="#olahraga">Rekomendasi Olahraga</a></li>
+                <li><a href="#video">Video Tutorial</a></li>
+                <li><a href="#tim">Tim Pengembang</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section dengan Animasi -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="fade-in">Raih Body Goals Impianmu!</h1>
+                <p class="fade-in-delay">Hitung BMI, pantau progres, dan capai target berat badan idealmu dengan mudah</p>
+                <div class="hero-buttons">
+                    <button class="cta-button" onclick="scrollToSection('kalkulator')">Mulai Sekarang</button>
+                    <button class="cta-button-outline" onclick="scrollToSection('tim')">Lihat Tim</button>
+                </div>
+            </div>
+            <div class="hero-animation">
+                <!-- Animasi Perempuan Olahraga -->
+                <div class="exercise-girl">
+                    <div class="girl-body">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        <div class="leg leg-left"></div>
+                        <div class="leg leg-right"></div>
+                    </div>
+                    <div class="dumbbell dumbbell-left">🏋</div>
+                    <div class="dumbbell dumbbell-right">🏋</div>
+                </div>
+                <div class="floating-icons">
+                    <span class="icon">💪</span>
+                    <span class="icon">❤</span>
+                    <span class="icon">⭐</span>
+                    <span class="icon">🔥</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kalkulator BMI Section -->
+    <section id="kalkulator" class="calculator-section">
+        <h2>📊 Kalkulator BMI</h2>
+        <p class="section-subtitle">Hitung Body Mass Index untuk mengetahui status kesehatan tubuhmu</p>
+        
+        <div class="calculator-container">
+            <div class="calculator-card">
+                <h3>Input Data Diri</h3>
+                <form id="bmiForm">
+                    <div class="input-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" placeholder="Contoh: Salwa Nur Mumtaz" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="age">Umur (tahun)</label>
+                        <input type="number" id="age" placeholder="Contoh: 20" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="weight">Berat Badan (kg)</label>
+                        <input type="number" id="weight" step="0.1" placeholder="Contoh: 65" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="height">Tinggi Badan (cm)</label>
+                        <input type="number" id="height" placeholder="Contoh: 170" required>
+                    </div>
+                    <button type="submit" class="calculate-btn">Hitung BMI Sekarang</button>
+                </form>
+                
+                <div id="result" class="result hidden">
+                    <h3>Hasil Perhitungan BMI</h3>
+                    <div class="result-card">
+                        <div class="bmi-value"></div>
+                        <div class="bmi-category"></div>
+                        <div class="bmi-advice"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bmi-info">
+                <h3>Kategori BMI</h3>
+                <div class="bmi-chart">
+                    <div class="chart-item underweight">
+                        <span class="range">< 18.5</span>
+                        <span class="label">Underweight (Kurus)</span>
+                    </div>
+                    <div class="chart-item normal">
+                        <span class="range">18.5 - 24.9</span>
+                        <span class="label">Normal (Ideal)</span>
+                    </div>
+                    <div class="chart-item overweight">
+                        <span class="range">25.0 - 29.9</span>
+                        <span class="label">Overweight (Gemuk)</span>
+                    </div>
+                    <div class="chart-item obese">
+                        <span class="range">≥ 30</span>
+                        <span class="label">Obese (Obesitas)</span>
+                    </div>
+                </div>
+                
+                <div class="bmi-formula">
+                    <h4>Rumus BMI</h4>
+                    <div class="formula-box">
+                        BMI = Berat Badan (kg) / (Tinggi Badan (m))²
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Body Goals Tracker Section -->
+    <section id="tracker" class="tracker-section">
+        <h2>🎯 Body Goals Tracker</h2>
+        <p class="section-subtitle">Tentukan target dan pantau progres berat badanmu</p>
+        
+        <div class="tracker-container">
+            <div class="tracker-card">
+                <h3>Set Target Berat Badan Ideal</h3>
+                <form id="goalForm">
+                    <div class="input-group">
+                        <label for="targetWeight">Target Berat Badan (kg)</label>
+                        <input type="number" id="targetWeight" step="0.1" placeholder="Contoh: 60" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="targetDate">Target Waktu Pencapaian</label>
+                        <input type="date" id="targetDate" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Simpan Target</button>
+                </form>
+                
+                <div id="goalResult" class="goal-result hidden">
+                    <h4>Target Kamu:</h4>
+                    <p class="goal-info"></p>
+                </div>
+            </div>
+            
+            <div class="progress-card">
+                <h3>Progres Berat Badan</h3>
+                <form id="progressForm">
+                    <div class="input-group">
+                        <label for="currentWeight">Update Berat Badan Saat Ini (kg)</label>
+                        <input type="number" id="currentWeight" step="0.1" placeholder="Contoh: 63" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="progressDate">Tanggal</label>
+                        <input type="date" id="progressDate" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Catat Progres</button>
+                </form>
+                
+                <div id="progressHistory" class="progress-history">
+                    <h4>Riwayat Progres:</h4>
+                    <div id="historyList"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h3>Grafik Perkembangan</h3>
+            <canvas id="progressChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Manajemen Kalori Section -->
+    <section id="kalori" class="calorie-section">
+        <h2>🍽 Manajemen Kalori Harian</h2>
+        <p class="section-subtitle">Catat asupan kalori dan kebutuhan kalori harianmu</p>
+        
+        <div class="calorie-container">
+            <div class="calorie-calculator">
+                <h3>Hitung Kebutuhan Kalori (BMR)</h3>
+                <form id="bmrForm">
+                    <div class="input-group">
+                        <label>Jenis Kelamin</label>
+                        <select id="gender" required>
+                            <option value="">Pilih</option>
+                            <option value="female">Perempuan</option>
+                            <option value="male">Laki-laki</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Tingkat Aktivitas</label>
+                        <select id="activity" required>
+                            <option value="">Pilih</option>
+                            <option value="1.2">Sangat Ringan (Jarang olahraga)</option>
+                            <option value="1.375">Ringan (1-3x seminggu)</option>
+                            <option value="1.55">Sedang (3-5x seminggu)</option>
+                            <option value="1.725">Berat (6-7x seminggu)</option>
+                            <option value="1.9">Sangat Berat (Atlet)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="calculate-btn">Hitung Kebutuhan Kalori</button>
+                </form>
+                
+                <div id="bmrResult" class="bmr-result hidden">
+                    <h4>Kebutuhan Kalori Harianmu:</h4>
+                    <div class="calorie-value"></div>
+                    <p class="calorie-advice"></p>
+                </div>
+            </div>
+            
+            <div class="calorie-tracker">
+                <h3>Catat Asupan Kalori</h3>
+                <form id="calorieForm">
+                    <div class="input-group">
+                        <label for="foodName">Nama Makanan/Minuman</label>
+                        <input type="text" id="foodName" placeholder="Contoh: Nasi Goreng" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="calories">Jumlah Kalori (kkal)</label>
+                        <input type="number" id="calories" placeholder="Contoh: 450" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Tambah ke Catatan</button>
+                </form>
+                
+                <div class="calorie-summary">
+                    <h4>Total Kalori Hari Ini:</h4>
+                    <div id="totalCalories" class="total-calories">0 kkal</div>
+                    <div id="calorieList" class="calorie-list"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rekomendasi Olahraga Section -->
+    <section id="olahraga" class="exercise-section">
+        <h2>🏃‍♀ Rekomendasi Olahraga & Pembakaran Kalori</h2>
+        <p class="section-subtitle">Pilih aktivitas olahraga sesuai dengan kategori BMI dan tujuanmu</p>
+        
+        <div class="exercise-grid">
+            <div class="exercise-card">
+                <div class="exercise-icon">🚶‍♀</div>
+                <h3>Jalan Kaki</h3>
+                <p class="calories-burned">~200 kkal/jam</p>
+                <p class="exercise-desc">Cocok untuk pemula dan kategori overweight</p>
+                <div class="exercise-benefits">
+                    <span class="benefit">✓ Low Impact</span>
+                    <span class="benefit">✓ Mudah dilakukan</span>
+                </div>
+            </div>
+            
+            <div class="exercise-card">
+                <div class="exercise-icon">🏃‍♀</div>
+                <h3>Berlari</h3>
+                <p class="calories-burned">~500 kkal/jam</p>
+                <p class="exercise-desc">Efektif untuk membakar kalori dan kardio</p>
+                <div class="exercise-benefits">
+                    <span class="benefit">✓ High Intensity</span>
+                    <span class="benefit">✓ Meningkatkan stamina</span>
+                </div>
+            </div>
+            
+            <div class="exercise-card">
+                <div class="exercise-icon">🏊‍♀</div>
+                <h3>Berenang</h3>
+                <p class="calories-burned">~400 kkal/jam</p>
+                <p class="exercise-desc">Latihan seluruh tubuh yang menyegarkan</p>
+                <div class="exercise-benefits">
+                    <span class="benefit">✓ Full Body</span>
+                    <span class="benefit">✓ Ramah sendi</span>
+                </div>
+            </div>
+            
+            <div class="exercise-card">
+                <div class="exercise-icon">🚴‍♀</div>
+                <h3>Bersepeda</h3>
+                <p class="calories-burned">~350 kkal/jam</p>
+                <p class="exercise-desc">Melatih kaki dan meningkatkan endurance</p>
+                <div class="exercise-benefits">
+                    <span class="benefit">✓ Cardio</span>
+                    <span class="benefit">✓ Fun Activity</span>
+                </div>
+            </div>
+            
+            <div class="exercise-card">
+                <div class="exercise-icon">🧘‍♀</div>
+                <h3>Yoga</h3>
+                <p class="calories-burned">~180 kkal/jam</p>
+                <p class="exercise-desc">Meningkatkan fleksibilitas dan ketenangan</p>
+                <div class="exercise-benefits">
+                    <span class="benefit">✓ Flexibility</span>
+                    <span class="benefit">✓ Stress Relief</span>
+                </div>
+            </div>
+            
+            <div class="exercise-card">
+                <div class="exercise-icon">💪</div>
+                <h3>Strength Training</h3>
+                <p class="calories-burned">~300 kkal/jam</p>
+                <p class="exercise-desc">Membangun massa otot dan metabolisme</p>
+                <div class="exercise-benefits">
+                    <span class="benefit">✓ Build Muscle</span>
+                    <span class="benefit">✓ Metabolism Boost</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Tutorial Section -->
+<section id="video" class="video-section">
+    <h2>🎥 Video Tutorial Olahraga</h2>
+    <p class="section-subtitle">Ikuti panduan olahraga dari para ahli</p>
+
+    <div class="video-grid">
+
+        <div class="video-card">
+            <div class="video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/ml6cT4AZdqI"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <h3>Cardio untuk Pemula</h3>
+            <p>Latihan kardio 15 menit untuk membakar kalori dan meningkatkan stamina</p>
+        </div>
+
+        <div class="video-card">
+            <div class="video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/v7AYKMP6rOE"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <h3>Yoga untuk Relaksasi</h3>
+            <p>Yoga santai untuk fleksibilitas tubuh dan ketenangan pikiran</p>
+        </div>
+
+        <div class="video-card">
+            <div class="video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/U0bhE67HuDY"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <h3>Strength Training</h3>
+            <p>Latihan kekuatan untuk membentuk otot dan meningkatkan metabolisme</p>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Tim Pengembang Section -->
+    <section id="tim" class="team-section">
+        <h2>👥 Tim Pengembang</h2>
+        <div class="team-header">
+            <h3>🌟 Kelompok 8 🌟</h3>
+            <p class="team-subtitle">Program Studi S1 Teknologi Informasi<br>Fakultas Informatika - Universitas Telkom</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">👩‍💻</div>
+                <h3>Salwa Nur Mumtaz</h3>
+                <p class="nim">103032400119</p>
+                <p class="role">Project Manager</p>
+                <p class="desc">Koordinator proyek dan perancang konsep sistem</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">👩‍💻</div>
+                <h3>Refina Meyla Jayani</h3>
+                <p class="nim">103032400133</p>
+                <p class="role">Frontend Developer</p>
+                <p class="desc">Desain UI/UX dan implementasi antarmuka</p>
+            </div>
+        </div>
+        
+        <div class="project-info">
+            <h4>Tentang Proyek</h4>
+            <p>Web BMI & Body Goals Tracker dikembangkan sebagai Tugas Besar Sistem Multimedia 2025. 
+            Web ini dirancang untuk membantu pengguna dalam memantau kondisi kesehatan tubuh melalui 
+            perhitungan BMI dan melacak perkembangan menuju body goals atau berat badan ideal.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>BMI & Body Goals Tracker</h4>
+                <p>Kelompok 8 - Tugas Besar Sistem Multimedia</p>
+                <p>Fakultas Informatika - Universitas Telkom 2025</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p>📧 salwanurmumtaz@student.telkomuniversity.ac.id</p>
+                <p>📧 refinameylajayani@student.telkomuniversity.ac.id</p>
+                <p>📱 Universitas Telkom, Bandung</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BMI & Body Goals Tracker - Kelompok 8. Dibuat dengan ❤ untuk kesehatan yang lebih baik</p>
+        </div>
+    </footer>
+
+    <!-- Chart.js untuk Grafik -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
